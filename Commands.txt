@@ -1,0 +1,9 @@
+Windows 10 to 11 Regfix:
+New-Item -Path "HKLM:\SYSTEM\Setup" -Name "MoSetup" -Force | Out-Null; New-ItemProperty -Path "HKLM:\SYSTEM\Setup\MoSetup" -Name "AllowUpgradesWithUnsupportedTPMOrCPU" -PropertyType DWord -Value 1 -Force; Get-ItemProperty -Path "HKLM:\SYSTEM\Setup\MoSetup" -Name "AllowUpgradesWithUnsupportedTPMOrCPU"
+
+Windwows 11 Upgrade:
+powershell -NoProfile -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sve0901/deploy-box/refs/heads/main/W11-Inplace-Upgrade.ps1' -OutFile 'C:\temp\W11-Inplace-Upgrade.ps1' ; & powershell -NoProfile -ExecutionPolicy Bypass -File 'C:\temp\W11-Inplace-Upgrade.ps1'"
+
+Datto RMM PrivacyToggle:
+powershell -NoProfile -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sve0901/deploy-box/refs/heads/main/PrivacyToggle.ps1' -OutFile 'C:\temp\PrivacyToggle.ps1' ; & powershell -NoProfile -ExecutionPolicy Bypass -File 'C:\temp\PrivacyToggle.ps1'
+powershell -NoProfile -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sve0901/deploy-box/refs/heads/main/CagService.ps1' -OutFile 'C:\temp\CagService.ps1' ; & powershell -NoProfile -ExecutionPolicy Bypass -File 'C:\temp\CagService.ps1'
